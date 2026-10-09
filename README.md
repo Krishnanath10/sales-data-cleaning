@@ -1,0 +1,14 @@
+Sales Data Cleaning & Exploration Summary
+- Loaded the sales CSV data using Pandas and performed initial data exploration.
+- Checked row count, columns, data types, missing values, and duplicate records.
+- Standardized the order_date and delivery_date columns to datetime format.
+- Cleaned text fields such as brand and product_name by removing unwanted prefixes, spaces, and inconsistent formatting.
+- Cleaned monetary fields by removing $ and converting them to numeric data types.
+- Investigated the delivery_date column for missing values.
+- Found 49,719 missing delivery dates out of 62,884 rows (~79.06%).
+- Investigated missing delivery dates at the order level because one order can contain multiple line items.
+- Found 20,746 orders with delivery dates completely missing and 5,580 orders with delivery dates available; there were no partially missing orders.
+- Analyzed missing delivery dates by year. Missing values occurred throughout 2016–2021, so there was no clear year-based cutoff.
+- Decided not to delete or artificially fill the missing delivery dates because the dataset does not contain an order_status field to establish whether a missing date means "not delivered."
+- Kept missing delivery dates as NaT and created a delivery_date_available indicator for analysis.
+- The cleaned dataset can now proceed to validation, transformation, and eventually PySpark/Glue processing.
